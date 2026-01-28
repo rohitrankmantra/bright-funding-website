@@ -267,6 +267,13 @@ export default function Header() {
                                 Quick approval, same-day funding available for
                                 qualified businesses.
                               </p>
+                              <Image
+                               src="https://images.pexels.com/photos/4968632/pexels-photo-4968632.jpeg"
+                               alt="Need Funding"
+                               width={200}
+                                height={120}
+                                className="mb-2 rounded-lg "
+                              />
                               <Link
                                 href="/apply"
                                 className="inline-flex items-center gap-2 bg-background text-foreground px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-accent hover:text-accent-foreground transition-colors"
