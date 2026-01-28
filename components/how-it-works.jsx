@@ -125,7 +125,7 @@ export default function HowItWorks() {
             ref={lineRef}
             className="hidden lg:block absolute top-24 left-[12.5%] right-[12.5%] h-1 bg-primary/20 origin-left rounded-full"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-accent to-primary rounded-full" />
+            <div className="absolute inset-0 bg-linear-to-r from-primary via-accent to-primary rounded-full" />
           </div>
 
           {/* Steps Grid */}

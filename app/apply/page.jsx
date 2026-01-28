@@ -12,8 +12,7 @@ import {
   HiCash,
   HiLightningBolt,
 } from "react-icons/hi";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+
 
 const steps = [
   { id: 1, name: "Business Info" },
@@ -193,7 +192,7 @@ export default function ApplyPage() {
                     },
                   ].map((item, index) => (
                     <div key={index} className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                         <span className="text-primary font-bold text-sm">
                           {item.step}
                         </span>
@@ -234,7 +233,6 @@ export default function ApplyPage() {
 
   return (
     <main className="min-h-screen">
-      <Header />
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-12 bg-muted overflow-hidden">
@@ -876,7 +874,6 @@ export default function ApplyPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

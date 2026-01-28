@@ -13,8 +13,8 @@ import {
   HiHeart,
   HiStar,
 } from "react-icons/hi";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import { FaDollarSign, FaUsers, FaSmile, FaClock } from "react-icons/fa";
+
 
 function AnimatedCounter({ end, suffix = "", duration = 2000 }) {
   const [count, setCount] = useState(0);
@@ -77,29 +77,29 @@ const team = [
   {
     name: "Michael Johnson",
     role: "CEO & Founder",
-    image: "/images/team-1.jpg",
+    image: "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     name: "Sarah Williams",
     role: "Chief Operations Officer",
-    image: "/images/team-2.jpg",
+    image: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     name: "David Chen",
     role: "Head of Underwriting",
-    image: "/images/team-3.jpg",
+    image: "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
   {
     name: "Emily Rodriguez",
     role: "Client Success Director",
-    image: "/images/team-4.jpg",
+    image: "https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=600",
   },
 ];
+
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen">
-      <Header />
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 bg-muted overflow-hidden">
@@ -156,7 +156,7 @@ export default function AboutPage() {
             >
               <div className="relative">
                 <div
-                  className="aspect-[4/3] rounded-3xl overflow-hidden"
+                  className="aspect-4/3 rounded-3xl overflow-hidden"
                   style={{
                     clipPath:
                       "polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 25%)",
@@ -196,36 +196,87 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { value: 50, suffix: "M+", label: "Funded to Date" },
-              { value: 5000, suffix: "+", label: "Businesses Helped" },
-              { value: 98, suffix: "%", label: "Satisfaction Rate" },
-              { value: 24, suffix: "hr", label: "Avg. Approval" },
-            ].map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <span className="text-4xl md:text-5xl font-bold text-primary">
+<section className="relative overflow-hidden">
+  <div className="bg-primary py-16 lg:py-20 relative">
+    
+    {/* Decorative Circles */}
+    <div className="absolute inset-0 opacity-10">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-white rounded-full translate-y-1/2 -translate-x-1/2" />
+    </div>
+
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+
+        {[
+          {
+            value: 50,
+            suffix: "M+",
+            label: "Funded to Date",
+            prefix: "$",
+            icon: FaDollarSign,
+          },
+          {
+            value: 5000,
+            suffix: "+",
+            label: "Businesses Helped",
+            prefix: "",
+            icon: FaUsers,
+          },
+          {
+            value: 98,
+            suffix: "%",
+            label: "Satisfaction Rate",
+            prefix: "",
+            icon: FaSmile,
+          },
+          {
+            value: 24,
+            suffix: "hr",
+            label: "Avg. Approval",
+            prefix: "",
+            icon: FaClock,
+          },
+        ].map((stat, index) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="flex items-center gap-4 lg:gap-5"
+          >
+            {/* Icon Box */}
+            <div className="w-12 h-12 lg:w-20 lg:h-20 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
+              <stat.icon className="w-8 h-8 lg:w-10 lg:h-10 text-accent" />
+            </div>
+
+            {/* Number + Label */}
+            <div>
+              <div className="flex items-baseline gap-1">
+                <span className="text-2xl lg:text-4xl xl:text-5xl font-bold text-white">
                   <AnimatedCounter
                     end={stat.value}
-                    suffix={stat.suffix}
+                    suffix=""
                     duration={2000}
                   />
                 </span>
-                <p className="text-muted-foreground mt-2">{stat.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+                <span className="text-lg lg:text-2xl font-bold text-accent">
+                  {stat.suffix}
+                </span>
+              </div>
+              <div className="text-white/80 font-medium text-sm lg:text-base mt-1">
+                {stat.label}
+              </div>
+            </div>
+          </motion.div>
+        ))}
+
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Our Story Section */}
       <section className="py-20 bg-muted">
@@ -324,7 +375,7 @@ export default function AboutPage() {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
                       <HiCheck className="w-4 h-4 text-primary" />
                     </div>
                     <span className="text-foreground font-medium">{item}</span>
@@ -364,23 +415,30 @@ export default function AboutPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-muted rounded-2xl p-6 text-center group hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-foreground/20 transition-colors">
-                  <value.icon className="w-8 h-8 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">{value.title}</h3>
-                <p className="text-muted-foreground group-hover:text-primary-foreground/80 transition-colors">
-                  {value.description}
-                </p>
-              </motion.div>
-            ))}
+  <motion.div
+    key={index}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4, delay: index * 0.1 }}
+    whileHover={{ scale: 1.03, y: -5 }}
+    className="group bg-card rounded-2xl p-5 lg:p-6 border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300"
+  >
+    {/* Icon */}
+    <div className="w-12 h-12 lg:w-14 lg:h-14 rounded-xl bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+      <value.icon className="w-6 h-6 lg:w-7 lg:h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+    </div>
+
+    {/* Content */}
+    <h3 className="text-base lg:text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+      {value.title}
+    </h3>
+    <p className="text-sm text-muted-foreground leading-relaxed">
+      {value.description}
+    </p>
+  </motion.div>
+))}
+
           </div>
         </div>
       </section>
@@ -422,13 +480,17 @@ export default function AboutPage() {
                 className="group"
               >
                 <div className="bg-background rounded-2xl overflow-hidden">
-                  <div className="aspect-[3/4] relative overflow-hidden">
-                    <div className="absolute inset-0 bg-primary/10 flex items-center justify-center">
-                      <span className="text-6xl font-bold text-primary/30">
-                        {member.name.charAt(0)}
-                      </span>
-                    </div>
-                  </div>
+                  <div className="relative aspect-3/4 overflow-hidden">
+  <Image
+    src={member.image}
+    alt={member.name}
+    fill
+    className="object-cover group-hover:scale-105 transition-transform duration-300"
+  />
+  {/* Subtle overlay on hover */}
+  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-colors duration-300" />
+</div>
+
                   <div className="p-5 text-center">
                     <h3 className="text-lg font-bold text-foreground">
                       {member.name}
@@ -442,21 +504,41 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    {/* Cta Section */}
+      <section className="relative py-24 lg:py-24 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/cta-background.jpg"
+            alt="Grow your business with Bright Funding Solution"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-primary/90" />
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-0 left-0 w-96 h-96 border border-primary-foreground/20 rounded-full -translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute top-1/2 right-0 w-125 h-125 border border-primary-foreground/20 rounded-full translate-x-1/3" />
+            <div className="absolute bottom-0 left-1/4 w-72 h-72 border border-primary-foreground/20 rounded-full translate-y-1/2" />
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="text-center max-w-3xl mx-auto"
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-primary-foreground mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 backdrop-blur-sm rounded-full mb-6">
+              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+              <span className="text-sm font-semibold text-primary-foreground">
+                Partner With Confidence
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4 text-balance">
               Ready to Partner With Us?
             </h2>
             <p className="text-primary-foreground/80 text-lg mb-8">
-              Join thousands of businesses who have trusted Bright Funding
-              Solution to help them grow.
+              Join thousands of businesses who have trusted Bright Funding Solution to help them grow.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
@@ -477,7 +559,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

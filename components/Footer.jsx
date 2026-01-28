@@ -8,10 +8,10 @@ import { HiMail, HiPhone, HiArrowRight } from "react-icons/hi";
 
 const quickLinks = [
   { name: "Home", href: "#" },
-  { name: "About Us", href: "#about" },
+  { name: "About Us", href: "/about" },
   { name: "Our Services", href: "#services" },
-  { name: "How It Works", href: "#how-it-works" },
-  { name: "Contact", href: "#contact" },
+  { name: "How It Works", href: "/how-it-works" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const servicesLinks = [

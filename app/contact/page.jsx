@@ -11,8 +11,6 @@ import {
   HiArrowRight,
   HiCheck,
 } from "react-icons/hi";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
 
 const contactInfo = [
   {
@@ -69,6 +67,8 @@ const faqs = [
 ];
 
 export default function ContactPage() {
+  const [openFaq, setOpenFaq] = useState(null);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -101,7 +101,6 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen">
-      <Header />
 
       {/* Hero Section */}
       <section className="relative pt-40 pb-20 bg-muted overflow-hidden">
@@ -137,36 +136,41 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-16 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactInfo.map((item, index) => (
-              <motion.a
-                key={index}
-                href={item.href}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className="bg-muted rounded-2xl p-6 text-center group hover:bg-primary hover:text-primary-foreground transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary-foreground/20 transition-colors">
-                  <item.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
-                </div>
-                <h3 className="font-bold text-foreground group-hover:text-primary-foreground mb-1 transition-colors">
-                  {item.title}
-                </h3>
-                <p className="font-semibold text-foreground group-hover:text-primary-foreground transition-colors">
-                  {item.content}
-                </p>
-                <p className="text-sm text-muted-foreground group-hover:text-primary-foreground/80 transition-colors">
-                  {item.subtext}
-                </p>
-              </motion.a>
-            ))}
+     <section className="py-16 bg-background">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {contactInfo.map((item, index) => (
+        <motion.a
+          key={index}
+          href={item.href}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: index * 0.1 }}
+          whileHover={{ scale: 1.03, y: -5 }}
+          className="group bg-card rounded-2xl p-6 border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 text-center"
+        >
+          {/* Icon */}
+          <div className="w-14 h-14 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+            <item.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
           </div>
-        </div>
-      </section>
+
+          {/* Content */}
+          <h3 className="font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+            {item.title}
+          </h3>
+          <p className="font-semibold text-foreground">
+            {item.content}
+          </p>
+          <p className="text-sm text-muted-foreground">
+            {item.subtext}
+          </p>
+        </motion.a>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Contact Form & FAQ Section */}
       <section className="py-20 bg-muted">
@@ -384,23 +388,39 @@ export default function ContactPage() {
                 Common Questions
               </h2>
 
-              <div className="space-y-4">
-                {faqs.map((faq, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="bg-background rounded-2xl p-6"
-                  >
-                    <h3 className="font-bold text-foreground mb-2">
-                      {faq.question}
-                    </h3>
-                    <p className="text-muted-foreground text-sm">{faq.answer}</p>
-                  </motion.div>
-                ))}
-              </div>
+             <div className="space-y-4">
+  {faqs.map((faq, index) => (
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: index * 0.1 }}
+      className="bg-background rounded-2xl p-6 cursor-pointer"
+      onClick={() => setOpenFaq(openFaq === index ? null : index)}
+    >
+      <div className="flex items-center justify-between">
+        <h3 className="font-bold text-foreground">
+          {faq.question}
+        </h3>
+        <span className="text-primary font-bold text-xl">
+          {openFaq === index ? "-" : "+"}
+        </span>
+      </div>
+
+      {openFaq === index && (
+        <motion.p
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          className="text-muted-foreground text-sm mt-3"
+        >
+          {faq.answer}
+        </motion.p>
+      )}
+    </motion.div>
+  ))}
+</div>
+
 
               <div className="mt-8 bg-primary rounded-2xl p-6 text-primary-foreground">
                 <h3 className="font-bold text-xl mb-2">Still have questions?</h3>
@@ -422,21 +442,56 @@ export default function ContactPage() {
       </section>
 
       {/* Map Section Placeholder */}
-      <section className="h-96 bg-muted relative">
-        <div className="absolute inset-0 flex items-center justify-center bg-primary/5">
-          <div className="text-center">
-            <HiLocationMarker className="w-12 h-12 text-primary mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-foreground mb-2">
-              Visit Our Office
-            </h3>
-            <p className="text-muted-foreground">
-              123 Finance Street, New York, NY 10001
-            </p>
-          </div>
-        </div>
-      </section>
+{/* Map Section */}
+<section className="h-96 lg:h-112.5 bg-muted relative overflow-hidden rounded-2xl">
 
-      <Footer />
+  {/* Google Map Full Background */}
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387193.0505383674!2d-74.30915841691113!3d40.697193362054165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1769585261912!5m2!1sen!2sin"
+    className="absolute inset-0 w-full h-full border-0"
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+  />
+
+  {/* Dark Overlay for Premium Look */}
+
+  {/* Floating Info Card */}
+  <div className="absolute bottom-6 left-6 right-6 sm:right-auto bg-background/95 backdrop-blur-md rounded-2xl p-6 shadow-2xl z-10 max-w-md">
+    <div className="flex items-start gap-4">
+      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+        <HiLocationMarker className="w-6 h-6 text-primary" />
+      </div>
+
+      <div>
+        <h3 className="text-xl font-bold text-foreground mb-1">
+          Visit Our Office
+        </h3>
+        <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+          123 Finance Street<br />
+          New York, NY 10001
+        </p>
+
+        <div className="flex flex-wrap gap-3">
+          <a
+            href="tel:+18881234567"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground rounded-lg text-sm font-semibold hover:bg-primary/90 transition"
+          >
+            Call Office
+          </a>
+
+          <a
+            href="mailto:info@brightfunding.com"
+            className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-sm font-semibold hover:bg-muted transition"
+          >
+            Email Us
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
     </main>
   );
 }

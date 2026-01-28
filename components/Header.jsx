@@ -76,10 +76,10 @@ const services = [
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About Us", href: "#" },
+  { name: "About Us", href: "/about" },
   { name: "Services", href: "#", hasDropdown: true },
-  { name: "How It Works", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "How It Works", href: "/how-it-works" },
+  { name: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
