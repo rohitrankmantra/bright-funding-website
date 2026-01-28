@@ -31,34 +31,34 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden">
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+    <footer className="relative overflow-hidden bg-foreground text-background">
+      {/* Blurs */}
+      <div className="absolute top-0 right-0 h-72 w-72 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-0 h-72 w-72 bg-accent/5 rounded-full blur-3xl" />
 
-      {/* Newsletter Section */}
+      {/* Newsletter */}
       <div className="border-b border-background/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             <div>
-              <h3 className="text-2xl lg:text-3xl font-bold text-background mb-2">
+              <h3 className="text-2xl sm:text-3xl font-bold mb-2">
                 Subscribe to Our Newsletter
               </h3>
-              <p className="text-background/60">
-                Get the latest funding tips and industry insights delivered to your inbox.
+              <p className="text-background/60 max-w-md">
+                Get the latest funding tips and insights delivered to your inbox.
               </p>
             </div>
-            <form className="flex w-full lg:w-auto gap-3">
+
+            <form className="flex w-full lg:w-auto flex-col sm:flex-row gap-3">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 lg:w-80 px-5 py-3.5 rounded-xl bg-background/10 border border-background/20 text-background placeholder:text-background/50 focus:outline-none focus:border-primary transition-colors"
+                className="w-full sm:w-72 px-5 py-3.5 rounded-xl bg-background/10 border border-background/20 text-background placeholder:text-background/50 focus:outline-none focus:border-primary"
               />
               <motion.button
-                type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-6 py-3.5 bg-primary text-primary-foreground rounded-xl font-semibold hover:bg-primary/90 transition-colors flex items-center gap-2"
+                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary font-semibold text-primary-foreground"
               >
                 Subscribe
                 <HiArrowRight className="w-4 h-4" />
@@ -69,41 +69,38 @@ export default function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-          {/* Brand Column */}
-          <div className="sm:col-span-2 lg:col-span-1">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+          {/* Brand */}
+          <div>
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className=" w-full h-auto  overflow-hidden flex items-center justify-center border">
-                <Image
-                  src="/logo.png"
-                  alt="Logo"
-                  width={160}
-                  height={48}
-                  className="object-cover w-full h-36"
-                />
-              </div>
+              <Image
+                src="/logo.png"
+                alt="Bright Funding"
+                width={140}
+                height={40}
+                className="object-contain"
+              />
               <div>
-                <span className="text-background font-bold text-xl block leading-tight">
-                  Bright Funding
-                </span>
-                <span className="text-background/50 text-xs">Solution</span>
+                <span className="block text-xl font-bold">Bright Funding</span>
+                <span className="text-xs text-background/50">Solution</span>
               </div>
             </Link>
-            <p className="text-background/60 text-sm leading-relaxed mb-6">
+
+            <p className="text-sm text-background/60 mb-6 max-w-sm">
               Empowering small and medium-sized businesses with fast, reliable
-              funding solutions. Your growth is our mission.
+              funding solutions.
             </p>
-            {/* Social Links */}
-            <div className="flex items-center gap-3">
-              {socialLinks.map((social) => (
+
+            <div className="flex gap-3">
+              {socialLinks.map((s) => (
                 <a
-                  key={social.label}
-                  href={social.href}
-                  aria-label={social.label}
-                  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center text-background/60 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-background/10 text-background/60 hover:bg-primary hover:text-primary-foreground transition"
                 >
-                  <social.icon className="w-4 h-4" />
+                  <s.icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
@@ -111,16 +108,15 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-background mb-6 text-lg">Quick Links</h4>
+            <h4 className="mb-6 text-lg font-bold">Quick Links</h4>
             <ul className="space-y-3">
-              {quickLinks.map((link) => (
-                <li key={link.name}>
+              {quickLinks.map((l) => (
+                <li key={l.name}>
                   <Link
-                    href={link.href}
-                    className="text-background/60 hover:text-primary transition-colors text-sm flex items-center gap-2 group"
+                    href={l.href}
+                    className="text-sm text-background/60 hover:text-primary transition"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
-                    {link.name}
+                    {l.name}
                   </Link>
                 </li>
               ))}
@@ -129,77 +125,47 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-background mb-6 text-lg">Our Services</h4>
+            <h4 className="mb-6 text-lg font-bold">Our Services</h4>
             <ul className="space-y-3">
-              {servicesLinks.map((link) => (
-                <li key={link.name}>
+              {servicesLinks.map((l) => (
+                <li key={l.name}>
                   <Link
-                    href={link.href}
-                    className="text-background/60 hover:text-primary transition-colors text-sm flex items-center gap-2 group"
+                    href={l.href}
+                    className="text-sm text-background/60 hover:text-primary transition"
                   >
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary/50 group-hover:bg-primary transition-colors" />
-                    {link.name}
+                    {l.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div>
-            <h4 className="font-bold text-background mb-6 text-lg">Contact Us</h4>
-            <ul className="space-y-4">
-              <li>
-                <a
-                  href="tel:+18881234567"
-                  className="flex items-center gap-3 text-background/60 hover:text-primary transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
-                    <HiPhone className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <span className="block text-xs text-background/40 mb-0.5">Phone</span>
-                    <span className="text-sm font-medium text-background">(888) 123-4567</span>
-                  </div>
-                </a>
+            <h4 className="mb-6 text-lg font-bold">Contact Us</h4>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-center gap-3">
+                <HiPhone className="h-5 w-5 text-primary" />
+                <span>(888) 123-4567</span>
               </li>
-              <li>
-                <a
-                  href="mailto:admin@brightfundingsolution.com"
-                  className="flex items-center gap-3 text-background/60 hover:text-primary transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center shrink-0">
-                    <HiMail className="w-5 h-5 text-[#791718]" />
-                  </div>
-                  <div>
-                    <span className="block text-xs text-background/40 mb-0.5">Email</span>
-                    <span className="text-sm font-medium text-background">admin@brightfundingsolution.com</span>
-                  </div>
-                </a>
+              <li className="flex items-center gap-3">
+                <HiMail className="h-5 w-5 text-primary" />
+                <span>admin@brightfundingsolution.com</span>
               </li>
-              <li className="pt-2">
-                <span className="block text-xs text-background/40 mb-1">Hours</span>
-                <span className="text-sm text-background/80">Mon - Sun: 9 AM - 9 PM EST</span>
+              <li className="text-background/60">
+                Mon – Sun: 9 AM – 9 PM EST
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-12 pt-8 border-t border-background/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-background/50">
-            &copy; {new Date().getFullYear()} Bright Funding Solution. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6 text-sm text-background/50">
-            <Link href="#" className="hover:text-primary transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
-              Disclaimer
-            </Link>
+        {/* Bottom */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-background/10 pt-8 text-sm text-background/50">
+          <p>© {new Date().getFullYear()} Bright Funding Solution</p>
+          <div className="flex gap-6">
+            <Link href="#" className="hover:text-primary">Privacy</Link>
+            <Link href="#" className="hover:text-primary">Terms</Link>
+            <Link href="#" className="hover:text-primary">Disclaimer</Link>
           </div>
         </div>
       </div>

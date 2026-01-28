@@ -63,7 +63,7 @@ export default function Contact() {
         </motion.div>
 
         {/* Contact Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
           {contactInfo.map((item, index) => (
             <motion.div
               key={item.label}
@@ -280,7 +280,7 @@ export default function Contact() {
                   123 Financial District, Suite 500, New York, NY 10004
                 </p>
               </div>
-              <div className="relative h-75 lg:h-87.5">
+              <div className="relative aspect-video sm:aspect-4/3 lg:aspect-video">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.2219901290355!2d-74.01369368459473!3d40.71066447933185!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a1829a3f4a5%3A0x9c2c8b7e8f9c8b7e!2sFinancial%20District%2C%20New%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
                   width="100%"
@@ -289,7 +289,7 @@ export default function Contact() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  className="grayscale hover:grayscale-0 transition-all duration-500"
+                  className="absolute inset-0 w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
                   title="Bright Funding Solution Location"
                 />
               </div>

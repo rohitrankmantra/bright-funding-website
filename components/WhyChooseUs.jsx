@@ -118,21 +118,21 @@ export default function WhyChooseUs() {
                 className="flex items-center gap-4 lg:gap-5"
               >
                 {/* Icon Box - Lendiz Style */}
-                <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center flex-shrink-0">
+                <div className="w-12 h-12 lg:w-20 lg:h-20 rounded-xl bg-white/10 border border-white/20 flex items-center justify-center shrink-0">
                   <stat.icon className="w-8 h-8 lg:w-10 lg:h-10 text-accent" />
                 </div>
                 
                 {/* Number and Label */}
                 <div>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl lg:text-4xl xl:text-5xl font-bold text-white">
+                    <span className="text-2xl lg:text-4xl xl:text-5xl font-bold text-white">
                       <AnimatedCounter 
                         value={stat.value} 
                         suffix="" 
                         prefix={stat.prefix}
                       />
                     </span>
-                    <span className="text-xl lg:text-2xl font-bold text-accent">
+                    <span className="text-lg lg:text-2xl font-bold text-accent">
                       {stat.suffix}
                     </span>
                   </div>

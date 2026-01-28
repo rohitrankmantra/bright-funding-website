@@ -133,7 +133,7 @@ export default function Header() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div className="hidden md:flex items-center gap-6">
+          <div className=" md:flex items-center gap-6">
             <a
               href="mailto:info@brightfunding.com"
               className="flex items-center gap-2 hover:text-accent transition-colors"
@@ -141,7 +141,7 @@ export default function Header() {
               <HiMail className="w-4 h-4" />
               <span>info@brightfunding.com</span>
             </a>
-            <span className="flex items-center gap-2">
+            <span className="hidden md:flex items-center gap-2">
               <HiLocationMarker className="w-4 h-4" />
               <span>New York, NY</span>
             </span>
@@ -170,7 +170,7 @@ export default function Header() {
                 alt="Logo"
                 width={160}
                 height={48}
-                className=" w-22 h-18 border"
+                className="w-20 h-18 md:w-22 md:h-18 border"
               />
             </div>
          <div className="hidden sm:block leading-tight">
@@ -279,13 +279,13 @@ export default function Header() {
 
                           {/* Bottom Links */}
                           <div className="mt-4 pt-4 border-t border-border flex items-center justify-between">
-                            <Link
+                            {/* <Link
                               href="/services"
                               className="text-sm text-primary font-medium hover:underline flex items-center gap-1"
                             >
                               View All Services
                               <HiArrowRight className="w-4 h-4" />
-                            </Link>
+                            </Link> */}
                             <span className="text-xs text-muted-foreground">
                               Trusted by 5,000+ businesses nationwide
                             </span>
@@ -391,14 +391,14 @@ export default function Header() {
                               <span className="text-sm">{service.name}</span>
                             </Link>
                           ))}
-                          <Link
+                          {/* <Link
                             href="/services"
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="flex items-center gap-2 py-2.5 px-4 text-primary font-medium text-sm"
                           >
                             View All Services
                             <HiArrowRight className="w-4 h-4" />
-                          </Link>
+                          </Link> */}
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -428,7 +428,7 @@ export default function Header() {
                 <Link
                   href="/apply"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="inline-flex w-full items-center justify-center px-6 py-4 bg-primary text-primary-foreground rounded-xl font-semibold"
+                  className="inline-flex w-full items-center justify-center px-6 py-4 bg-primary text-primary-foreground rounded-xl text-sm font-semibold"
                 >
                   Apply Now
                 </Link>
