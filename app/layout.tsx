@@ -1,6 +1,10 @@
 import { Plus_Jakarta_Sans } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { ReactNode } from 'react';
+
 
 const plusJakarta = Plus_Jakarta_Sans({ 
   subsets: ["latin"],
@@ -26,11 +30,13 @@ export const viewport = {
   initialScale: 1,
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <body className={`${plusJakarta.className} antialiased`}>
+        <Header/>
         {children}
+        <Footer/>
         <Analytics />
       </body>
     </html>

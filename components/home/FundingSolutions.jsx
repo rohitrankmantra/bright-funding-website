@@ -151,7 +151,7 @@ export default function FundingSolutions() {
                 <ul className="space-y-2 mb-4">
                   {solution.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <HiCheckCircle className="w-4 h-4 text-primary flex-shrink-0" />
+                      <HiCheckCircle className="w-4 h-4 text-primary shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -169,7 +169,7 @@ export default function FundingSolutions() {
       </div>
 
       {/* CTA Section with Background Image */}
-      <div className="relative min-h-[400px] lg:min-h-[500px]">
+      <div className="relative min-h-100 lg:min-h-125">
         {/* Background Image */}
         <div className="absolute inset-0">
           <Image
