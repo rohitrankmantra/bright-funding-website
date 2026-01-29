@@ -161,12 +161,12 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-background/10 pt-8 text-sm text-background/50">
-          <p>© {new Date().getFullYear()} Bright Funding Solution</p>
-          <div className="flex gap-6">
+          <p>© {new Date().getFullYear()} Bright Funding Solution  All rights reserved. Designed & Developed by <a className="text-white underline" href="https://rankmantra.com/">Rankmantra</a></p>
+          {/* <div className="flex gap-6">
             <Link href="#" className="hover:text-primary">Privacy</Link>
             <Link href="#" className="hover:text-primary">Terms</Link>
             <Link href="#" className="hover:text-primary">Disclaimer</Link>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

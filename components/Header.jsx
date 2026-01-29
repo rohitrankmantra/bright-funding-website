@@ -26,49 +26,49 @@ import {
 const services = [
   {
     name: "Merchant Cash Advance",
-    slug: "#",
+    slug: "merchant-cash-advance",
     description: "Quick capital based on future sales",
     icon: HiCash,
   },
   {
     name: "Business Line of Credit",
-    slug: "#",
+    slug: "business-line-of-credit",
     description: "Revolving credit for ongoing needs",
     icon: HiCreditCard,
   },
   {
     name: "Business Term Loans",
-    slug: "#",
+    slug: "term-loans",
     description: "Fixed payments over set terms",
     icon: HiOfficeBuilding,
   },
   {
     name: "Equipment Financing",
-    slug: "#",
+    slug: "equipment-financing",
     description: "Fund equipment purchases easily",
     icon: HiTruck,
   },
   {
     name: "Invoice Factoring",
-    slug: "#",
+    slug: "invoice-factoring",
     description: "Turn invoices into instant cash",
     icon: HiCurrencyDollar,
   },
   {
     name: "SBA Loans",
-    slug: "#",
+    slug: "sba-loans",
     description: "Government-backed favorable terms",
     icon: HiShieldCheck,
   },
   {
     name: "Working Capital",
-    slug: "#",
+    slug: "working-capital",
     description: "Short-term operational funding",
     icon: HiChartBar,
   },
   {
     name: "Startup Funding",
-    slug: "#",
+    slug: "startup-funding",
     description: "Capital for new businesses",
     icon: HiLightningBolt,
   },
@@ -77,7 +77,7 @@ const services = [
 const navLinks = [
   { name: "Home", href: "/" },
   { name: "About Us", href: "/about" },
-  { name: "Services", href: "#", hasDropdown: true },
+  { name: "Services", href: "/services", hasDropdown: true },
   { name: "How It Works", href: "/how-it-works" },
   { name: "Contact", href: "/contact" },
 ];
