@@ -135,11 +135,11 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className=" md:flex items-center gap-6">
             <a
-              href="mailto:info@brightfunding.com"
+              href="mailto:ric@brightfundingsolution.com"
               className="flex items-center gap-2 hover:text-accent transition-colors"
             >
               <HiMail className="w-4 h-4" />
-              <span>info@brightfunding.com</span>
+              <span>ric@brightfundingsolution.com</span>
             </a>
             <span className="hidden md:flex items-center gap-2">
               <HiLocationMarker className="w-4 h-4" />
@@ -147,7 +147,7 @@ export default function Header() {
             </span>
           </div>
           <div className="flex items-center gap-4 ml-auto">
-            <span className="hidden sm:block">Mon - Fri: 9:00 AM - 6:00 PM</span>
+            <span className="hidden sm:block">Mon - Fri: 09:00am – 08:00pm</span>
             <span className="hidden sm:block">|</span>
             <a
               href="tel:+18881234567"
@@ -170,17 +170,10 @@ export default function Header() {
                 alt="Logo"
                 width={160}
                 height={48}
-                className="w-20 h-18 md:w-22 md:h-18 border"
+                className="w-full h-18 md:w-full md:h-18 "
               />
             </div>
-         <div className="hidden sm:block leading-tight">
-  <span className="text-foreground font-extrabold text-xl tracking-wide">
-    Bright Funding
-  </span>
-  <span className="block text-primary font-semibold text-sm tracking-wide">
-    Solutions
-  </span>
-</div>
+  
 
           </Link>
 

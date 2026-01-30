@@ -1,10 +1,11 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
-import { HiMail, HiPhone, HiArrowRight } from "react-icons/hi";
+import { HiMail, HiPhone, HiArrowRight, HiCheckCircle } from "react-icons/hi";
 
 const quickLinks = [
   { name: "Home", href: "#" },
@@ -30,8 +31,12 @@ const socialLinks = [
 ];
 
 export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   return (
-    <footer className="relative overflow-hidden bg-foreground text-background">
+    <footer className="relative overflow-hidden bg-black/90 text-background">
       {/* Blurs */}
       <div className="absolute top-0 right-0 h-72 w-72 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 h-72 w-72 bg-accent/5 rounded-full blur-3xl" />
@@ -49,19 +54,61 @@ export default function Footer() {
               </p>
             </div>
 
-            <form className="flex w-full lg:w-auto flex-col sm:flex-row gap-3">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (!email.trim()) {
+                  alert("Please enter your email");
+                  return;
+                }
+                setIsSubmitting(true);
+                setTimeout(() => {
+                  setIsSubmitting(false);
+                  setSubscribed(true);
+                  setEmail("");
+                }, 1200);
+              }}
+              className="flex w-full lg:w-auto flex-col sm:flex-row gap-3"
+            >
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full sm:w-72 px-5 py-3.5 rounded-xl bg-background/10 border border-background/20 text-background placeholder:text-background/50 focus:outline-none focus:border-primary"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                disabled={subscribed || isSubmitting}
+                className={`w-full sm:w-72 px-5 py-3.5 rounded-xl bg-background/10 border ${
+                  subscribed
+                    ? "border-green-500/50 text-green-300 placeholder:text-green-300/50"
+                    : "border-background/20 text-background placeholder:text-background/50"
+                } focus:outline-none focus:border-primary disabled:opacity-60`}
               />
               <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-primary font-semibold text-primary-foreground"
+                type="submit"
+                disabled={subscribed || isSubmitting}
+                whileHover={{ scale: subscribed ? 1 : 1.02 }}
+                whileTap={{ scale: subscribed ? 1 : 0.98 }}
+                className={`flex cursor-pointer items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold min-w-35 transition-all ${
+                  subscribed
+                    ? "bg-green-600 text-white cursor-pointer"
+                    : isSubmitting
+                    ? "bg-primary/70 text-primary-foreground cursor-wait"
+                    : "bg-primary text-primary-foreground hover:bg-primary/90"
+                }`}
               >
-                Subscribe
-                <HiArrowRight className="w-4 h-4" />
+                {subscribed ? (
+                  <>
+                    Subscribed <HiCheckCircle className="w-5 h-5" />
+                  </>
+                ) : isSubmitting ? (
+                  <>
+                    Subscribing...
+                    <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                  </>
+                ) : (
+                  <>
+                    Subscribe <HiArrowRight className="w-4 h-4" />
+                  </>
+                )}
               </motion.button>
             </form>
           </div>
@@ -79,12 +126,8 @@ export default function Footer() {
                 alt="Bright Funding"
                 width={140}
                 height={40}
-                className="object-contain"
+                className="object-contain w-full"
               />
-              <div>
-                <span className="block text-xl font-bold">Bright Funding</span>
-                <span className="text-xs text-background/50">Solution</span>
-              </div>
             </Link>
 
             <p className="text-sm text-background/60 mb-6 max-w-sm">

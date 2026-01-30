@@ -16,15 +16,15 @@ const contactInfo = [
   {
     icon: HiMail,
     label: "Email Us",
-    value: "admin@brightfundingsolution.com",
+    value: "ric@brightfundingsolution.com",
     subtext: "We reply within 24 hours",
-    href: "mailto:admin@brightfundingsolution.com",
+    href: "mailto:ric@brightfundingsolution.com",
     color: "bg-accent",
   },
   {
     icon: HiClock,
     label: "Office Hours",
-    value: "Mon - Sun: 9 AM - 9 PM EST",
+    value: "Mon - Sun: 9:00 AM - 8:00 PM",
     subtext: "Always here for you",
     href: null,
     color: "bg-[#0B7077]",
@@ -301,7 +301,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-[#6b1426] rounded-2xl p-6 text-white"
+              className="bg-[#0a2a5d] rounded-2xl p-6 text-white"
             >
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-full bg-white/10 border-2 border-white/30 flex items-center justify-center shrink-0">

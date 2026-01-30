@@ -17,15 +17,15 @@ const contactInfo = [
     icon: HiPhone,
     title: "Phone",
     content: "(888) 123-4567",
-    subtext: "Mon-Fri 9am-6pm EST",
+    subtext: "Mon-Fri 9am-8pm EST",
     href: "tel:+18881234567",
   },
   {
     icon: HiMail,
     title: "Email",
-    content: "info@brightfunding.com",
+    content: "ric@brightfundingsolution.com",
     subtext: "We respond within 24 hours",
-    href: "mailto:info@brightfunding.com",
+    href: "mailto:ric@brightfundingsolution.com",
   },
   {
     icon: HiLocationMarker,
@@ -37,8 +37,8 @@ const contactInfo = [
   {
     icon: HiClock,
     title: "Hours",
-    content: "Mon - Fri: 9am - 6pm",
-    subtext: "Sat: 10am - 2pm EST",
+    content: "Mon - Fri: 9am - 8pm",
+    subtext: "Sat: 9am - 8pm EST",
     href: "#",
   },
 ];
@@ -480,7 +480,7 @@ export default function ContactPage() {
           </a>
 
           <a
-            href="mailto:info@brightfunding.com"
+            href="mailto:ric@brightfundingsolution.com"
             className="inline-flex items-center gap-2 px-4 py-2 border border-border rounded-lg text-sm font-semibold hover:bg-muted transition"
           >
             Email Us
