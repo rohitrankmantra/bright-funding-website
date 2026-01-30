@@ -14,15 +14,41 @@ const plusJakarta = Plus_Jakarta_Sans({
 
 export const metadata = {
   title: 'Bright Funding Solution | Fast Business Funding for SMBs',
-  description: 'Bright Funding Solution helps small and medium-sized businesses secure fast, reliable funding with clear terms and transparent processes. Apply today for same-day approval.',
-  keywords: 'business funding, small business loans, merchant cash advance, working capital, business financing',
+  description:
+    'Bright Funding Solution helps small and medium-sized businesses secure fast, reliable funding with clear terms and transparent processes. Apply today for same-day approval.',
+  keywords:
+    'business funding, small business loans, merchant cash advance, working capital, business financing',
+
   openGraph: {
     title: 'Bright Funding Solution | Fast Business Funding',
-    description: 'Get the capital your business needs - quickly, simply, and with full transparency.',
+    description:
+      'Get the capital your business needs - quickly, simply, and with full transparency.',
     type: 'website',
+    url: 'https://brightfundingsolution.com',
+    siteName: 'Bright Funding Solution',
   },
-    generator: 'v0.app'
-}
+
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/apple-touch-icon.png',
+    other: [
+      {
+        rel: 'icon',
+        url: '/favicon-32x32.png',
+        sizes: '32x32',
+        type: 'image/png',
+      },
+      {
+        rel: 'icon',
+        url: '/favicon-16x16.png',
+        sizes: '16x16',
+        type: 'image/png',
+      },
+    ],
+  },
+};
+
 
 export const viewport = {
   themeColor: '#0a2a5d',
