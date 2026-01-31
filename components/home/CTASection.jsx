@@ -78,7 +78,7 @@ export default function CTASection() {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.a
-                href="#contact"
+                href="/apply"
                 whileHover={{ scale: 1.03, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-accent text-accent-foreground rounded-full font-bold text-base hover:bg-accent/90 transition-all shadow-xl"

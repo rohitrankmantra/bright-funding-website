@@ -196,7 +196,7 @@ export default function Footer() {
                 <span>admin@brightfundingsolution.com</span>
               </li>
               <li className="text-background/60">
-                Mon – Sun: 9 AM – 9 PM EST
+                Mon – Sun: 9 AM – 8 PM EST
               </li>
             </ul>
           </div>

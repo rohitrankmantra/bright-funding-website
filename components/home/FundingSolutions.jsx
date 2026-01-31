@@ -275,7 +275,7 @@ export default function FundingSolutions() {
                 </div>
               </div>
               <a
-                href="#contact"
+                href="/contact"
                 className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 bg-white text-foreground rounded-full font-bold hover:bg-white/90 transition-all"
               >
                 Get Free Quote

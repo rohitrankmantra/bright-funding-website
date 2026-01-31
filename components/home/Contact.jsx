@@ -16,9 +16,9 @@ const contactInfo = [
   {
     icon: HiMail,
     label: "Email Us",
-    value: "ric@brightfundingsolution.com",
+    value: "admin@brightfundingsolution.com",
     subtext: "We reply within 24 hours",
-    href: "mailto:ric@brightfundingsolution.com",
+    href: "mailto:admin@brightfundingsolution.com",
     color: "bg-accent",
   },
   {
@@ -277,7 +277,7 @@ export default function Contact() {
                   Our Location
                 </h4>
                 <p className="text-sm text-muted-foreground mt-1">
-                  123 Financial District, Suite 500, New York, NY 10004
+                 350 Fifth Avenue, Floor 21 New York, NY 10118
                 </p>
               </div>
               <div className="relative aspect-video sm:aspect-4/3 lg:aspect-video">

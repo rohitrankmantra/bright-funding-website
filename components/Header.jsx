@@ -135,15 +135,16 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
           <div className=" md:flex items-center gap-6">
             <a
-              href="mailto:ric@brightfundingsolution.com"
+              href="mailto:admin@brightfundingsolution.com"
               className="flex items-center gap-2 hover:text-accent transition-colors"
             >
               <HiMail className="w-4 h-4" />
-              <span>ric@brightfundingsolution.com</span>
+              <span>admin@brightfundingsolution.com</span>
             </a>
             <span className="hidden md:flex items-center gap-2">
               <HiLocationMarker className="w-4 h-4" />
-              <span>New York, NY</span>
+              <span>350 Fifth Avenue, Floor 21
+New York, NY 10118</span>
             </span>
           </div>
           <div className="flex items-center gap-4 ml-auto">

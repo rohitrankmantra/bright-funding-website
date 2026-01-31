@@ -55,7 +55,7 @@ export default function Hero() {
               <motion.a
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                href="#apply"
+                href="/apply"
                 className="px-8 py-4 bg-primary text-primary-foreground rounded-full font-bold flex items-center justify-center gap-2 shadow-lg"
               >
                 Get Started Now
